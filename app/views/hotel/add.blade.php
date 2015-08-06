@@ -2,13 +2,18 @@
 @section('title')
 Agregar Hotel <small> NUEVO Hotel</small>
 @stop
+@section('breadcrumb')
+
+<li>Agregar</li>
+@stop
 @section('content')
+
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-{{ Form::open(array('method'=> 'POST','url'=> 'personal/hotel/insert.html','class'=>'form-horizontal','role'=>'form')) }}
+{{ Form::open(array('method'=> 'POST','url'=> 'hotel/insert.html','class'=>'form-horizontal','role'=>'form')) }}
 	<div class="form-group">
 		{{ Form::label('hnombre','Nombre:',array('class'=>'col-sm-4 control-label')) }}
 		<div class="col-sm-8">
-			{{ Form::text('hnombre','',array('class'=>'form-control','placeholder'=>'viktor'))}}
+			{{ Form::text('hnombre','',array('class'=>'form-control','placeholder'=>'Nombre de hotel'))}}
 		</div>
 	</div>
 	<div class="form-group">

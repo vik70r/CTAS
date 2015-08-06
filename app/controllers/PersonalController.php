@@ -23,25 +23,6 @@ class PersonalController extends BaseController
 			}
 		}
 	}
-	public function MantenimientoTHotel($idhotel,$nombre,$direccion,$categoria,$telefono,$descripcion,$consulta){
-		//thotel (`idhotel` ,`hnombre` ,`hdireccion` ,`categoria` ,`ctelefono` ,`cdescripcion`)
-	 if($consulta=="I"){
-		$sql = " INSERT INTO  THOTEL VALUES (NULL ,'".$nombre."','".$direccion."','".$categoria."','".$telefono."','".$descripcion."' )";
-		echo " <script language='JavaScript'> 
-                alert('Sus Datos Fueron Guardados Correctamente'); 
-                </script>";
-	   }else
-	   if($consulta=="A"){
-		  $sql = " UPDATE THOTEL SET ".
-		  								" hnombre =".$nombre.",".
-										" hdireccion =".$direccion.",".
-										" categoria =".$categoria.",".
-										" ctelefono =".$telefono.",".
-										" cdescripcion =".$descripcion." ".
-										" WHERE idhotel =".$idhotel."";
-		   }
-		  mysql_query($sql);
-		}
 
 	public function addC()
 	{
@@ -173,18 +154,6 @@ class PersonalController extends BaseController
 		}
 		return Redirect::to('personal/profile/'.$id)->withErrors($mensaje);
 	}
-	public function insertHotel()
-	{
-				$servicios = Servicio::all();
-				return View::make('personal.insertHotel');
-				
-				
-	}
-	public function addH()
-	{
-		
-		$servicios = Servicio::all();
-		return View::make('personal/hotel/.addH', compact('servicios'));
-	}
+	
 
 }

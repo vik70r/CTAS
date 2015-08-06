@@ -2,7 +2,6 @@
 	class Hotel extends Eloquent{
 		
 	protected $table = 'thotel';
-	public $timestamps = false;
 	protected $fillable = array('hnombre','hdireccion','categoria','htelefono','hdescripcion');
 
 	public static function agregar($input)

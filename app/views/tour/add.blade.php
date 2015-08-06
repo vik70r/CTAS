@@ -4,7 +4,7 @@ Agregar Tour <small> NUEVO TOUR</small>
 @stop
 @section('content')
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-{{ Form::open(array('method'=> 'POST','url'=> 'personal/tour/insert.html','class'=>'form-horizontal','role'=>'form')) }}
+{{ Form::open(array('method'=> 'POST','url'=> 'tour/insert.html','class'=>'form-horizontal','role'=>'form')) }}
 	<div class="form-group">
 		{{ Form::label('Tnombre','Nombre:',array('class'=>'col-sm-4 control-label')) }}
 		<div class="col-sm-8">

@@ -48,7 +48,7 @@ Lista de Tours
                         <td class="  sorting_1">{{ HTML::link('tour/profile/'.$dato->idtour,$dato->idtour) }}</td>
                         <td class=" "><b></b> {{ $dato->tnombre }}</td>
         
-                        <td class=" ">{{ $dato->constoreferencial }}</td>
+                        <td class=" ">{{ $dato->costoreferencial }}</td>
                         <td class=" ">{{ $dato->tdescripcion }}</td>
                         <td class=" ">
                             {{ HTML::link('tour/edit/'.$dato->id,'Actualizar') }}

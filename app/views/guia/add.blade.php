@@ -4,7 +4,7 @@ Agregar Guia <small> NUEVO GUIA</small>
 @stop
 @section('content')
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-{{ Form::open(array('method'=> 'POST','url'=> 'personal/guia/insert.html','class'=>'form-horizontal','role'=>'form')) }}
+{{ Form::open(array('method'=> 'POST','url'=> 'guia/insert.html','class'=>'form-horizontal','role'=>'form')) }}
 	<div class="form-group">
 		{{ Form::label('gnombre','Nombre:',array('class'=>'col-sm-4 control-label')) }}
 		<div class="col-sm-8">
@@ -12,13 +12,13 @@ Agregar Guia <small> NUEVO GUIA</small>
 		</div>
 	</div>
 	<div class="form-group">
-		{{ Form::label('gapellido','Dirección:',array('class'=>'col-sm-4 control-label')) }}
+		{{ Form::label('gapellido','Apellido:',array('class'=>'col-sm-4 control-label')) }}
 		<div class="col-sm-8">
 			{{ Form::text('gapellido','',array('class'=>'form-control','placeholder'=>'Cuba'))}}
 		</div>
 	</div>
 	<div class="form-group">
-		{{ Form::label('gsexo','Categoria:',array('class'=>'col-sm-4 control-label')) }}
+		{{ Form::label('gsexo','Sexo:',array('class'=>'col-sm-4 control-label')) }}
 		<div class="col-sm-8">
 			{{ Form::text('gsexo','',array('class'=>'form-control','placeholder'=>'M'))}}
 		</div>
