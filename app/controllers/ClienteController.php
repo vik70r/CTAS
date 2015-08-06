@@ -40,120 +40,11 @@ class ClienteController extends BaseController
 		}
 
 	
-	 public function MantenimientoTCliente($idcliente,$nombre,$apellido,$pasaporte,$nacionalidad,$edad,$consulta){
-		 // tcliente (idcliente ,cnombre ,capellido ,cpasaporte ,cnacionalidad ,cedad )
-	 if($consulta=="I"){
-		$sql = " INSERT INTO  TCLIENTE VALUES ( NULL ,'".$nombre."','".$apellido."','".$pasaporte."','".$nacionalidad."','".$edad."' )";
-	   }else
-	   if($consulta=="A"){
-		  $sql = " UPDATE TCLIENTE SET ".
-		  								" cnombre =".$nombre.",".
-										" capellido =".$apellido.",".
-										" pasaporte =".$pasaporte.",".
-										" cnacionalidad =".$nacionalidad.",".
-										" cedad =".$edad." ".
-										" WHERE idcliente =".$idcliente."";
-				echo " <script language='JavaScript'> 
-                alert('Sus Datos Fueron Guardados Correctamente'); 
-                </script>";
-		   }
-		 
-		  mysql_query($sql);
-		}
-		
-	 
-		
-  public function MantenimientoTtour($idtour,$nombre,$costoreferencial,$descripcion,$consulta){
-		//`ttour`(`idtour` ,`tnombre` ,`costoreferencial` ,`tdescripcion`)
-	 if($consulta=="I"){
-		$sql = " INSERT INTO  TTOUR VALUES (NULL ,'".$nombre."','".$costoreferencial."','".$descripcion."' )";
-		echo " <script language='JavaScript'> 
-                alert('Sus Datos Fueron Guardados Correctamente'); 
-                </script>";
-	   }else
-	   if($consulta=="A"){
-		  $sql = " UPDATE TTOUR SET ".
-		  								" tnombre =".$nombre.",".
-										" costoreferencial =".$costoreferencial.",".
-										" tdescripcion =".$descripcion."".
-										" WHERE idtour =".$idtour."";
-		   }
-		  
-		  mysql_query($sql);
-		}
-		
-	
-	public function MantenimientoTguia($idguia,$gnombre,$gapellido,$gsexo,$gtelefono,$cdescripcion,$consulta){
-		//'tguia` (`idguia` ,`gnombre` ,`gapellido` ,`gsexo` ,`gtelefono` ,`cdescripcion`)
-	 if($consulta=="I"){
-		$sql = " INSERT INTO  TGUIA VALUES (NULL ,'".$gnombre."','".$gapellido."','".$gsexo."','".$gtelefono."','".$cdescripcion."' )";
-	    echo " <script language='JavaScript'> 
-                alert('Sus Datos Fueron Guardados Correctamente'); 
-                </script>";
-	   }else
-	   if($consulta=="A"){
-		  $sql = " UPDATE TGUIA SET ".
-		  								" gnombre =".$gnombre.",".
-										" gapellido =".$gapellido.",".
-										" gsexo =".$gsexo.",".
-										" gtelefono =".$gtelefono.",".
-										" cdescripcion =".$cdescripcion."".
-										" WHERE idguia =".$idguia."";
-		   }
-		  mysql_query($sql);
-		}
-		
 
 	
-	public function MantenimientoTagencia($idagencia,$anombre,$adireccion,$atelefono,$consulta){
-		//`tagencia` (`idagencia` ,`anombre` ,`adireccion` ,`atelefono`)
-	 if($consulta=="I"){
-		$sql = " INSERT INTO  TAGENCIA VALUES (NULL ,'".$anombre."','".$adireccion."','".$atelefono."' )";
-		echo " <script language='JavaScript'> 
-                alert('Sus Datos Fueron Guardados Correctamente'); 
-                </script>";
-	   }else
-	   if($consulta=="A"){
-		  $sql = " UPDATE TAGENCIA SET ".
-		  								" anombre =".$anombre.",".
-										" adireccion =".$adireccion.",".
-										" atelefono =".$atelefono."".
-										" WHERE tagencia =".$tagencia."";
-										
-		   }
-		  mysql_query($sql);
-		}
-public function MantenimientoTempleado($idempleado,$enombre,$eapellido,$edni,$edireccion,$etelefono,$ecargo,$epassword,$etipo,$consulta){
-		//`templeado` (`idempleado`,`enombre`,`eapellido`,`edni`,`edireccion`,`etelefono`,`ecargo`,`epassword`,`etipo`,`eestado`)
-	 if($consulta=="I"){
-		$sql = " INSERT INTO  TEMPLEADO VALUES (NULL ,'".$enombre."','".$eapellido."','".$edni."','".$edireccion."','".$etelefono."', '".$ecargo."', MD5( '".$epassword."' ) ,  '".$etipo."',  '1' )";
-		echo " <script language='JavaScript'> 
-                alert('Sus Datos Fueron Guardados Correctamente'); 
-                </script>";
-	   }else
-	   if($consulta=="A"){
-		  $sql = " UPDATE TEMPLEADO SET ".
-		  								" enombre =".$enombre.",".
-										" eapellido =".$eapellido.",".
-										" edni =".$edni.",".
-										" edireccion =".$edireccion.",".
-										" etelefono =".$etelefono.",".
-										" ecargo =".$ecargo.",".
-										" etipo =".$etipo."".
-										" WHERE idempleado =".$idempleado."";
-		   }
-		   else
-		   if($consulta=="PA"){
-		  $sql = " UPDATE TEMPLEADO SET ".
-		  								" ecargo =".$ecargo.",".
-										" epassword =MD5( '".$epassword."' ),".
-										" etipo =".$etipo.",".
-										" eestado =".$eestado."".
-										" WHERE idempleado =".$idempleado."";
-		   }
-		  mysql_query($sql);
-		}
-		
+
+	
+
 	public function BuscarCliente($busqueda){		
 		$sql = "SELECT * FROM tcliente WHERE cpasaporte LIKE '%$busqueda%' OR  capellido LIKE '%$busqueda%' OR cnombre LIKE '%$busqueda%'  LIMIT 10;";	 
 		 return mysql_query($sql);
@@ -256,7 +147,7 @@ public function MantenimientoTempleado($idempleado,$enombre,$eapellido,$edni,$ed
 	public function ReservaBoleto()
 	{
 				$servicios = Servicio::all();
-				return View::make('cliente.ReservaBoleto');
+				return View::make('ReservaBoleto');
 				
 				
 	}

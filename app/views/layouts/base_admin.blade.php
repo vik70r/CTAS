@@ -344,7 +344,7 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li>{{ HTML::link('tour/reservaBoleto.html','Reservar Boleto') }}</li>
+                                <li>{{ HTML::link('reservaBoleto.html','Reservar Boleto') }}</li>
                                 <li>{{ HTML::link('tours','Listar Tours') }}</li>
                             </ul>
                         </li>
