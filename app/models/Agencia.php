@@ -3,7 +3,7 @@
 class Agencia extends Eloquent {
 
 	protected $table = 'agencia';
-	protected $fillable = array('nombre','apellidos','dni','direccion','telefono','email','password');
+	protected $fillable = array('nombre','ruc','ciudad','direccion','telefono','email','password');
 
 	public static function agregar($input)
 	{

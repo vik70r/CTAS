@@ -14,7 +14,7 @@ Agregar Hotel <small> NUEVO Hotel</small>
 	<div class="form-group">
 		{{ Form::label('hdireccion','Dirección:',array('class'=>'col-sm-4 control-label')) }}
 		<div class="col-sm-8">
-			{{ Form::text('hdireccion','',array('class'=>'form-control','placeholder'=>'Tesorera'))}}
+			{{ Form::text('hdireccion','',array('class'=>'form-control','placeholder'=>'Av. tu casa'))}}
 		</div>
 	</div>
 	<div class="form-group">

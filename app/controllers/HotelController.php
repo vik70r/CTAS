@@ -2,18 +2,26 @@
 
 class HotelController extends BaseController
 {
-	public function index($registros=20)
+	public function index($registros=5)
 	{
-		//$cod="1";
-		//$datos = Cliente::paginate($registros);
-
-		$hotels=Hotel::all();
-		//$clientes = Cliente::where('codCarrera','=',$cod)->get();
-		$datos = DB::table('thotel')
-        				
-        				->select('thotel.idhotel', 'thotel.hnombre', 'thotel.hdireccion', 'thotel.categoria','thotel.htelefono','thotel.hdescripcion')
-        				->get();
+		$datos = Hotel::paginate($registros);
+		$hotels = Hotel::all();
 		return View::make('hotel.index',compact("datos"),array('hotels'=>$hotels));
+	}
+	public function profile($id = null)
+	{
+		if (is_null($id) or ! is_numeric($id))
+		{
+			return Redirect::to('404.html');
+		} else {
+			$hotel = Hotel::where('id','=',$id)->firstOrFail();
+			if (is_object($hotel))
+			{
+				return View::make('hotel.profile',array('hotel'=>$hotel));
+			} else {
+				return Redirect::to('404.html');
+			}
+		}
 	}
 
 
@@ -26,9 +34,9 @@ class HotelController extends BaseController
 		$respuesta = Hotel::agregar(Input::all());
 		if($respuesta['error']==true)
 		{
-			return Redirect::to('personal/hotel/add')->with('mensaje',$respuesta['mensaje'])->withInput();
+			return Redirect::to('hotel/add')->with('mensaje',$respuesta['mensaje'])->withInput();
 		} else {
-			return Redirect::to('personal/hotels')->with('mensaje',$respuesta['mensaje']);
+			return Redirect::to('hotels')->with('mensaje',$respuesta['mensaje']);
 		}
 	}
 	public function edit($cod=null)

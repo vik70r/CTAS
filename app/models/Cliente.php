@@ -1,5 +1,5 @@
 <?php
-	class Tcliente extends Eloquent{
+	class Cliente extends Eloquent{
 		
 	protected $table = 'Tcliente';
 	public $timestamps = false;

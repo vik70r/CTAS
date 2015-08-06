@@ -2,23 +2,41 @@
 
 class GuiaController extends BaseController
 {
-	public function index()
+	public function index($registros=5)
 	{
-		$cargos = Cargo::all();
-		return View::make('personal.cargo.index',array('cargos'=>$cargos));
+		$datos = Guia::paginate($registros);
+		$guias = Guia::all();
+		return View::make('guia.index',compact("datos"),array('guias'=>$guias));
 	}
+	public function profile($id = null)
+	{
+		if (is_null($id) or ! is_numeric($id))
+		{
+			return Redirect::to('404.html');
+		} else {
+			$guia = Guia::where('id','=',$id)->firstOrFail();
+			if (is_object($guia))
+			{
+				return View::make('guia.profile',array('guia'=>$guia));
+			} else {
+				return Redirect::to('404.html');
+			}
+		}
+	}
+
+
 	public function add()
 	{
-		return View::make('personal.cargo.add');
+		return View::make('guia.add');
 	}
 	public function insert()
 	{
-		$respuesta = Cargo::agregar(Input::all());
+		$respuesta = Guia::agregar(Input::all());
 		if($respuesta['error']==true)
 		{
-			return Redirect::to('personal/cargo/add')->with('mensaje',$respuesta['mensaje'])->withInput();
+			return Redirect::to('guia/add')->with('mensaje',$respuesta['mensaje'])->withInput();
 		} else {
-			return Redirect::to('personal/cargos')->with('mensaje',$respuesta['mensaje']);
+			return Redirect::to('guias')->with('mensaje',$respuesta['mensaje']);
 		}
 	}
 	public function edit($cod=null)

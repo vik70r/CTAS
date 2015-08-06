@@ -314,8 +314,28 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li>{{ HTML::link('personal/hotel/add.html','Agregar Hotel') }}</li>
-                                <li>{{ HTML::link('personal/hotel/index.html','Listar Hoteles') }}</li>
+                                <li>{{ HTML::link('hotel/add.html','Agregar Hotel') }}</li>
+                                <li>{{ HTML::link('hotels','Listar Hoteles') }}</li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="personal">
+                                <i class="fa fa-folder"></i> <span>Guia</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>{{ HTML::link('guia/add.html','Agregar Guia') }}</li>
+                                <li>{{ HTML::link('guias','Listar Guias') }}</li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="personal">
+                                <i class="fa fa-folder"></i> <span>Tour</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>{{ HTML::link('tour/add.html','Agregar Tour') }}</li>
+                                <li>{{ HTML::link('tours','Listar Tours') }}</li>
                             </ul>
                         </li>
 

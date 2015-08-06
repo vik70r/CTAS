@@ -231,6 +231,20 @@ public function MantenimientoTempleado($idempleado,$enombre,$eapellido,$edni,$ed
 				return mysql_query($sql);
 		}
 	
+	public function add()
+	{
+		return View::make('cliente.add');
+	}
+	public function insert()
+	{
+		$respuesta = Cliente::agregar(Input::all());
+		if($respuesta['error']==true)
+		{
+			return Redirect::to('cliente/add.html')->withErrors($respuesta['mensaje'] )->withInput();
+		} else {
+			return Redirect::to('clientes')->with('mensaje',$respuesta['mensaje']);
+		}
+	}
 	public function insertCliente()
 	{
 				$servicios = Servicio::all();
@@ -299,7 +313,7 @@ public function MantenimientoTempleado($idempleado,$enombre,$eapellido,$edni,$ed
 		//$cod="1";
 		//$datos = Cliente::paginate($registros);
 
-		$clientes=Tcliente::all();
+		$clientes=Cliente::all();
 		//$clientes = Cliente::where('codCarrera','=',$cod)->get();
 		$datos = DB::table('tcliente')
         				

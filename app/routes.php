@@ -76,7 +76,6 @@ Route::post('cliente/updatePass/{id}',array('uses'=>'ClienteController@updatePas
 
 
 
-
 Route::group(['before' => 'auth'], function()
 {
     Route::get('agencia/profile/{id}',array('uses'=>'AgenciaController@profile'))->where('id','[0-9]+');
@@ -87,6 +86,7 @@ Route::post('agencia/login',array('uses'=>'AgenciaController@loginInit'));
 Route::get('agencia/logout.html',array('uses'=>'AgenciaController@logout'));
 Route::get('agencia/edit/{id}',array('uses'=>'AgenciaController@edit'))->where('id','[0-9]+');
 Route::post('agencia/update/{id}',array('uses'=>'AgenciaController@update'))->where('id','[0-9]+');
+
 Route::post('agencia/insert.html',array('uses'=>'AgenciaController@insert'));
 Route::get('agencia/delete/{idA}',array('uses'=>'AgenciaController@delete'))->where('id','[0-9]+');
 Route::get('agencia/change-pass/{id}',array('uses'=>'AgenciaController@changepass'))->where('id','[0-9]+');
@@ -98,6 +98,7 @@ Route::post('agencia/imagen/{id}',array('uses'=>'AgenciaController@uploadImage')
 });
 
 
+
 // Personal
 
 Route::group(['before' => 'auth'], function()
@@ -106,11 +107,24 @@ Route::group(['before' => 'auth'], function()
     Route::post('personal/insertC.html',array('uses'=>'PersonalController@insertc'));
     Route::get('personal/addC.html',array('uses'=>'PersonalController@addc'));
     
+    Route::get('clientes',array('uses'=>'ClienteController@index'));
+Route::get('cliente/add.html',array('uses'=>'ClienteController@add'));
+Route::post('cliente/insert.html',array('uses'=>'ClienteController@insert'));
+
+
+Route::get('tours',array('uses'=>'TourController@index'));    
+Route::get('tour/add.html',array('uses'=>'TourController@add'));
+Route::post('tour/insert.html',array('uses'=>'TourController@insert'));        
+
+Route::get('guias',array('uses'=>'GuiaController@index'));    
+Route::get('guia/add.html',array('uses'=>'GuiaController@add'));
+Route::post('guia/insert.html',array('uses'=>'GuiaController@insert'));
         
-    
-    Route::get('personal/hotel/add.html',array('uses'=>'HotelController@add'));
-    Route::post('personal/hotel/insert.html',array('uses'=>'HotelController@insert'));
-Route::get('personal/hotels',array('uses'=>'HotelController@index'));    
+
+Route::get('hotels',array('uses'=>'HotelController@index'));    
+Route::get('hotel/add.html',array('uses'=>'HotelController@add'));
+Route::post('hotel/insert.html',array('uses'=>'HotelController@insert'));
+
 
     Route::get('personal/cargos',array('uses'=>'CargoController@index'));
     Route::get('personal/cargo/add.html',array('uses'=>'CargoController@add'));
